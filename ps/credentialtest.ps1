@@ -1,5 +1,5 @@
 # a series of functions designed to grab and deploy credentials
-function credential-manager {
+function credential-manager() {
 # By default, the path to the credential file is stored here. The function is designed such that a user will be able to tell the program where to look for
 # or where to store the credential file.
   $testpath = "path\To\stored-creds"
