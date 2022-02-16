@@ -2,19 +2,23 @@
 # $TestConfig = Get-Content "~/path/to/test/config" | ConvertFrom-Json
 
 # Function responsible for connecting to the vcenter
+.\credential-test.ps1
+# THIS DEFINITELY DOES NOT WORK
 function load-user(){
-
+    $user= credential-manager()
+    return user
 }
 Function connect_server(){
+    $user = load-user()
     $default = $TestConfig.vCenterName
     Try
     {
         $vserver= Read-Host "Please enter the FQDN or IP address of your Vcenter server [$default]: "
         if ([string]::IsNullOrWhiteSpace($vserver))
         {
-            Connect-VIServer($default) -User  -ErrorAction Stop
+            Connect-VIServer($default) -Credential $user  -ErrorAction Stop
         }else{
-            Connect-VIServer($vserver) -User riku -ErrorAction Stop
+            Connect-VIServer($vserver) -Credential $user -ErrorAction Stop
         }
         
 
