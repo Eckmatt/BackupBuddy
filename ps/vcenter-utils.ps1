@@ -1,15 +1,15 @@
 # test config for default configuration
-# $TestConfig = Get-Content "~/path/to/test/config" | ConvertFrom-Json
+# $TestConfig = Get-Content "H:\ChamplainCapstone\bigpairofscissors\testconfig.json" | ConvertFrom-Json
 
 # Function responsible for connecting to the vcenter
 .\credential-test.ps1
 # THIS DEFINITELY DOES NOT WORK
-function load-user(){
-    $user= credential-manager()
-    return user
+function Get-ScissorUser(){
+    $VsphereUser= get-scissors
+    return $VsphereUser
 }
 Function connect_server(){
-    $user = load-user()
+    $user = Get-ScissorUser
     $default = $TestConfig.vCenterName
     Try
     {
@@ -91,28 +91,11 @@ function cloner () {
     $vm = select_vm
     $snapshot = pick_snapshot -vm $vm
     $vmhost = pick_hostname
-    $dstore = pick_datastore
-    $folder = pick_folder
 
-    $choice = Read-Host "Create a Linked Clone or Full Clone? Enter [L/l] for Linked Clone or [F/f] for Full Clone"
-    If($choice -eq 'F' -or $choice -eq 'f' )
-    {
-        $Tempname = "{0}.temp" -f $vm.Name
-        $Tempvm = New-VM -Name $Tempname -VM $vm -LinkedClone -ReferenceSnapshot $snapshot -VMHost $vmhost -Datastore $dstore
-        $newname = Read-Host "Enter a name for your New VM"
+    $newname = "{0}.linked" -f $vm.Name
+    $newvm = New-VM -Name $newname -VM $vm -LinkedClone -ReferenceSnapshot $snapshot -VMHost $vmhost
+    Get-VM -Name $newname | Export-VApp -Destination ‘H:\ChamplainCapstone\rocks‘ -Format OVA
 
-        $newvm = New-VM -Name $newname -VM $Tempvm -VMHost $vmhost -Datastore $dstore -Location $folder
-        setNetwork -vm $newvm
-        $newvm | new-snapshot -Name "Base"
-        $Tempvm | Remove-VM
 
-    }elseif ($choice -eq 'L' -or $choice -eq 'l' ) {
-        $newname = "{0}.linked" -f $vm.Name
-        $newvm = New-VM -Name $newname -VM $vm -LinkedClone -ReferenceSnapshot $snapshot -VMHost $vmhost -Datastore $dstore -Location $folder
-        setNetwork -vm $newvm
-
-    }else{
-        throw "Select Either [L]inked Clone or [F]ull Clone"
-    }
 
 }
