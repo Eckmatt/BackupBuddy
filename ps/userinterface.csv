@@ -1,5 +1,5 @@
 Section,Method,Command,Arguments,Name,Description
 Test! utils,powershell_file,vcenter_utils.ps1, ,vcenter_utils,runs vcenter_utils
 Test! utils,powershell_file,credentialtest.ps1, ,credentialtest,runs credentialtest
-Data Entry,powershell_file,vmentry.ps1, ,credentialtest,runs vmentry
-Data Entry,powershell_file,directoryentry.ps1, ,credentialtest,runs directoryentry
+Data Entry,powershell_file,vmentry.ps1, ,Add VM,Add VM name for automated backup
+Data Entry,powershell_file,directoryentry.ps1, ,Add Directory,Add directory filepath for automated backup
