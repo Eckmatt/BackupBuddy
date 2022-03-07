@@ -1,0 +1,3 @@
+Section,Method,Command,Arguments,Name,Description
+Test Section,powershell_file,vcenter_utils.ps1, ,vcenter_utils,runs vcenter_utils
+Test Section,powershell_file,credentialtest.ps1, ,credentialtest,runs credentialtest

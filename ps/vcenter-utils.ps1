@@ -2,7 +2,7 @@
 # $TestConfig = Get-Content "H:\ChamplainCapstone\bigpairofscissors\testconfig.json" | ConvertFrom-Json
 
 # Function responsible for connecting to the vcenter
-.\credential-test.ps1
+Import-Module .\credentialtest.ps1 -Force
 # THIS DEFINITELY DOES NOT WORK
 function Get-ScissorUser(){
     $VsphereUser= get-scissors
@@ -99,3 +99,5 @@ function cloner () {
 
 
 }
+
+$user=Get-ScissorUser
