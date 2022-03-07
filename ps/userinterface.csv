@@ -1,5 +1,5 @@
 Section,Method,Command,Arguments,Name,Description
-Test Section,powershell_file,vcenter_utils.ps1, ,vcenter_utils,runs vcenter_utils
-Test Section,powershell_file,credentialtest.ps1, ,credentialtest,runs credentialtest
-Test Section,powershell_file,vmentry.ps1, ,credentialtest,runs vmentry
-Test Section,powershell_file,directoryentry.ps1, ,credentialtest,runs directoryentry
+Test! utils,powershell_file,vcenter_utils.ps1, ,vcenter_utils,runs vcenter_utils
+Test! utils,powershell_file,credentialtest.ps1, ,credentialtest,runs credentialtest
+Data Entry,powershell_file,vmentry.ps1, ,credentialtest,runs vmentry
+Data Entry,powershell_file,directoryentry.ps1, ,credentialtest,runs directoryentry
