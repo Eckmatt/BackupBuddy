@@ -46,11 +46,12 @@ Function pick_snapshot(){
         $vm
     )
     Try{
-        $snapName = Read-Host "Enter the Name of "$vm.Name"'s Snapshot you wish to clone" 
-        $snapshot=Get-Snapshot -VM $vm -Name $snapName -ErrorAction Stop
+        $date = Get-Date -Format "yyyy_dd_MM"
+        $snapName = "{0}_backup" -f $date
+        $snapshot = New-Snapshot -VM $vm -Name $snapName
         return $snapshot
     }Catch{
-        Write-Output "!!!Error!!! - Snapshot not found!"
+        Write-Output "!!!Error!!! - Unable to Creat Snapshot!"
         exit
 }
 }
