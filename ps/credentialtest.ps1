@@ -2,8 +2,7 @@
 function get-scissors() {
 # By default, the path to the credential file is stored here. The function is designed such that a user will be able to tell the program where to look for
 # or where to store the credential file.
-  Write-Host "This is actually getting run"
-  $testpath = "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\bigpairofscissors\scissor1.xml"
+  $testpath = "C:\Users\meckh\Documents\bigpairofscissors\scissor1.xml"
 
 
 

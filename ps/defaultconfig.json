@@ -1,0 +1,10 @@
+{
+	"vCenterName": "vcenter01.cyber.local",
+	"dstoreName": "datastore1",
+	"hostname": "192.168.x.x",
+	"FolderName": "",
+	"groupName": "",
+	"rocksFolder": "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\rocks",
+	"targets": [""]
+
+}
