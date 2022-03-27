@@ -1,0 +1,8 @@
+{
+	"vCenterName": "vcenter01.cyber.local",
+	"defaultSnapshot": "Base",
+	"rocksFolder": "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\rocks",
+	"targets": ["ad01", "mgmt01", "wks01"],
+	"scissorPath": "C:\Users\meckh\Documents\bigpairofscissors\scissor1.xml",
+
+}

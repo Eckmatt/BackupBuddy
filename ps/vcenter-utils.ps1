@@ -13,14 +13,7 @@ Function connect_server(){
     $default = $TestConfig.vCenterName
     Try
     {
-        $vserver= Read-Host "Please enter the FQDN or IP address of your vCenter server [$default]: "
-        if ([string]::IsNullOrWhiteSpace($vserver))
-        {
-            Connect-VIServer($default) -Credential $user  -ErrorAction Stop
-        }else{
-            Connect-VIServer($vserver) -Credential $user -ErrorAction Stop
-        }
-        
+        Connect-VIServer($default) -Credential $user  -ErrorAction Stop
 
     }Catch{
         Write-Output "!!!Error!!! - Could not connect to vCenter. Check your vCenter server name and your vCenter credentials."
@@ -60,8 +53,8 @@ function cloner () {
     
     connect_server
     $targets = $TestConfig.targets
-# IN THEORY, This works by creating a new snapshot to backup off of, and then deploys a linked clone based off of the
-# reference snapshot, for each list of targets that are given by config.json
+# IN THEORY, This works by creating a new snapshot to backup off of on the target vm, and then deploys a linked clone based off of the
+# reference snapshot and then exports the linked VM to an OVA template, for every target given by config.json
     foreach($target in $targets) {
         $snapshot = pick_snapshot -vm $vm
         $vm=Get-VM -Name $target -ErrorAction Stop
