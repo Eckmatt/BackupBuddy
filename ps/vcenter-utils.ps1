@@ -1,5 +1,5 @@
-# test config for default configuration
-$TestConfig = Get-Content "testconfig.json" | ConvertFrom-Json
+# loading configuration stored in json form
+$TestConfig = Get-Content "config.json" | ConvertFrom-Json
 $rocksFolder = $TestConfig.rocksFolder
 
 # Function responsible for connecting to the vcenter
@@ -59,13 +59,17 @@ Function pick_snapshot(){
 function cloner () {
     
     connect_server
-    $vm = select_vm
-    $snapshot = pick_snapshot -vm $vm
-    $vmhost = pick_hostname
+    $targets = $TestConfig.targets
+# IN THEORY, This works by creating a new snapshot to backup off of, and then deploys a linked clone based off of the
+# reference snapshot, for each list of targets that are given by config.json
+    foreach($target in $targets) {
+        $snapshot = pick_snapshot -vm $vm
+        $vm=Get-VM -Name $target -ErrorAction Stop
+        $newname = "{0}.linked" -f $vm.Name
+        $newvm = New-VM -Name $newname -VM $vm -LinkedClone -ReferenceSnapshot $snapshot
+        Get-VM -Name $newname | Export-VApp -Destination $rocksFolder -Format OVA
+    }
 
-    $newname = "{0}.linked" -f $vm.Name
-    $newvm = New-VM -Name $newname -VM $vm -LinkedClone -ReferenceSnapshot $snapshot -VMHost $vmhost
-    Get-VM -Name $newname | Export-VApp -Destination $rocksFolder -Format OVA
 
 
 
