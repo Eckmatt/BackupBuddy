@@ -68,4 +68,4 @@ function cloner () {
 
 }
 
-$user=Get-ScissorUser
+cloner

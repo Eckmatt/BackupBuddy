@@ -2,7 +2,7 @@
 function get-scissors() {
 # By default, the path to the credential file is stored here. The function is designed such that a user will be able to tell the program where to look for
 # or where to store the credential file.
-  $TestConfig = Get-Content "config.json" | ConvertFrom-Json
+  $TestConfig = Get-Content "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\ps\config.json" | ConvertFrom-Json
   $testpath = $TestConfig.scissorPath
 
 
