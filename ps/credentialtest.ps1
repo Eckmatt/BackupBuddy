@@ -19,5 +19,3 @@ function get-scissors() {
   return $credential
 }
 
-$returncreds = get-scissors
-Write-Host $returncreds

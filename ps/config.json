@@ -3,9 +3,9 @@
    "defaultSnapshot":"Base",
    "rocksFolder":"C:\\Users\\meckh\\Documents\\GitHub\\ChamplainCapstone\\rocks",
    "targets":[
-      "ad01",
-      "mgmt01",
-      "wks01"
+      "ad01-SYS265-02-matthew.eckhardt",
+      "mgmt01-SYS265-02-matthew.eckhardt",
+      "wks01-SYS265-02-matthew.eckhardt"
    ],
    "scissorPath":"C:\\Users\\meckh\\Documents\\bigpairofscissors\\scissor1.xml"
 }
