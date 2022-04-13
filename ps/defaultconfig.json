@@ -1,10 +1,11 @@
 {
-	"vCenterName": "vcenter01.cyber.local",
-	"dstoreName": "datastore1",
-	"hostname": "192.168.x.x",
-	"defaultSnapshot": "Base",
-	"groupName": "",
-	"rocksFolder": "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\rocks",
-	"targets": [""]
-
+   "vCenterName":"vcenter01.cyber.local",
+   "defaultSnapshot":"Base",
+   "rocksFolder":"C:\\Users\\meckh\\Documents\\GitHub\\ChamplainCapstone\\rocks",
+   "targets":[
+      "ad01-SYS265-02-matthew.eckhardt",
+      "mgmt01-SYS265-02-matthew.eckhardt",
+      "wks01-SYS265-02-matthew.eckhardt"
+   ],
+   "scissorPath":"C:\\Users\\meckh\\Documents\\bigpairofscissors\\scissor1.xml"
 }
