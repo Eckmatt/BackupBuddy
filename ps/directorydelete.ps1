@@ -1,4 +1,4 @@
-#Allows the user to delete VM names from backup
+﻿#Allows the user to delete directory names from backup
 $looper=1
 $BigObject = Get-Content "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\ps\config.json" | ConvertFrom-Json
 $targets = $BigObject.vmTargets
