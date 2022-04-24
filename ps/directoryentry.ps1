@@ -10,7 +10,6 @@ while($looper -eq 1){
         Write-Output "Named Directory already exists as a target."
     }elseif($entry -and !($targets.Contains($entry))){
         $entry -replace "\$", "\\"
-        Write-Output $entry
         $targets += $entry
 
 
