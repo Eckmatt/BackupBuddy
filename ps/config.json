@@ -1,0 +1,14 @@
+{
+   "vCenterName":"vcenter01.cyber.local",
+   "defaultSnapshot":"Base",
+   "rocksFolder":"C:\\Users\\meckh\\Documents\\GitHub\\ChamplainCapstone\\rocks",
+   "vmTargets":[
+      "ad01-SYS265-02-matthew.eckhardt",
+      "mgmt01-SYS265-02-matthew.eckhardt",
+      "wks01-SYS265-02-matthew.eckhardt"
+   ],
+   "dirTargets":[
+      "C:\\Users\\meckh\\Pictures"
+   ],
+   "scissorPath":"C:\\Users\\meckh\\Documents\\bigpairofscissors\\scissor1.xml"
+}
