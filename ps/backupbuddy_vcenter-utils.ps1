@@ -3,6 +3,7 @@ $TestConfig = Get-Content "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\ps\
 $rocksFolder = $TestConfig.rocksFolder
 
 # Function responsible for connecting to the vcenter
+
 Import-Module .\credentialtest.ps1 -Force
 function Get-ScissorUser(){
     $VsphereUser= get-scissors
