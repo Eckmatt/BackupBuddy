@@ -8,7 +8,7 @@ Import-Module $generalutils_path
 # Check to make sure necessary modules are installed
 
 # Check to see if PSScriptMenuGui is installed
-$guiInstall = Get-Module -Name PSScriptMenuGui
+$guiInstall = Get-Module -ListAvailable -Name PSScriptMenuGui
 if($guiInstall -eq $null){
     $looper = 0
     while($looper -eq 0){
@@ -24,6 +24,8 @@ if($guiInstall -eq $null){
         }
     }
 }
+#Import Menu Gui
+Import-Module PSScriptMenuGui
 try{
     $powerCLIInstall = Get-Package -Name "VMware PowerCLI"
 }catch [NoMatchFound]{
@@ -45,5 +47,5 @@ try{
 } 
 
 #Change to match file path
-$menupath = ResolveFilePath -File backupbuddy_menu.ps1
-Show-ScriptMenuGui -csvPath $menupath -Verbose
+$menupath = ResolveFilePath -File backupbuddy_userinterface.csv
+Show-ScriptMenuGui -csvPath $menupath -windowTitle "Backup Buddy"

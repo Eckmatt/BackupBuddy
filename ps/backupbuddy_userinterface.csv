@@ -1,7 +1,8 @@
 Section,Method,Command,Arguments,Name,Description
-First-Time Config,powershell_file,backupbuddy_onetimesetup.ps1,,Reconfigure all settings,Setup the Backup Buddy
+First-Time Config,powershell_file,backupbuddy_onetimesetup.ps1, ,Reconfigure Settings,Setup the Backup Buddy
 Data Entry,powershell_file,backupbuddy_vmentry.ps1, ,Add VM,Add VM name for automated backup
 Data Entry,powershell_file,backupbuddy_directoryentry.ps1, ,Add Directory,Add directory filepath for automated backup
 Data Deletion,powershell_file,backupbuddy_directorydelete.ps1, ,Delete Directory,Delete directory filepath from list of automated backups
 Data Deletion,powershell_file,backupbuddy_vmdelete.ps1, ,Delete VM,Delete VM from list of automated backups
-
+Scheduler,powershell_file,backupbuddy_scheduler.ps1, ,Schedule,Schedule the Backup Buddy to run automatically
+Run Backup Buddy,powershell_file,backupbuddy_runBackup.ps1, ,Run,Run the Backup Script
