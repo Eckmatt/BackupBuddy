@@ -1,5 +1,10 @@
 ﻿#This menu script creates a powershell menu, that will allow the user to interact with the script, and perform data entry for the rest of the script
 
+#Get General Utils
+$generalutils_path = Get-ChildItem -Path C:\Users\$env:UserName -Filter backupbuddy_generalutils.ps1 -Recurse | %{$_.FullName}
+Import-Module $generalutils_path
+
+
 # Check to make sure necessary modules are installed
 
 # Check to see if PSScriptMenuGui is installed
@@ -40,4 +45,5 @@ try{
 } 
 
 #Change to match file path
-Show-ScriptMenuGui -csvPath 'C:\Users\meckh\Documents\GitHub\ChamplainCapstone\ps\userinterface.csv' -Verbose
+$menupath = ResolveFilePath -File backupbuddy_menu.ps1
+Show-ScriptMenuGui -csvPath $menupath -Verbose

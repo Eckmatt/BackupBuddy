@@ -1,6 +1,13 @@
+#Get General Utils
+$generalutils_path = Get-ChildItem -Path C:\Users\$env:UserName -Filter backupbuddy_generalutils.ps1 -Recurse | %{$_.FullName}
+Import-Module $generalutils_path
+
+#resolving config filepath
+$configpath = ResolveFilePath -File backupbuddy_config.json
+
 #Allows the user to delete VM names from backup
 $looper=1
-$BigObject = Get-Content "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\ps\config.json" | ConvertFrom-Json
+$BigObject = Get-Content $configpath | ConvertFrom-Json
 $targets = $BigObject.vmTargets
 
 while($looper -eq 1){
@@ -33,4 +40,4 @@ while($looper -eq 1){
 	
 }
 $BigObject.vmTargets = $targets
-$BigObject | Convertto-Json -Depth 100 | Out-File "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\ps\config.json"
+$BigObject | Convertto-Json -Depth 100 | Out-File $configpath

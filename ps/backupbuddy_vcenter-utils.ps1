@@ -1,10 +1,20 @@
+#Get General Utils
+$generalutils_path = Get-ChildItem -Path C:\Users\$env:UserName -Filter backupbuddy_generalutils.ps1 -Recurse | %{$_.FullName}
+Import-Module $generalutils_path
+
+
+#resolve relevant filepaths
+$configpath = ResolveFilePath -File backupbuddy_config.json
+$crendentialtestpath = ResolveFilePath -File backupbuddy_credentialtest.ps1
+
+
 # loading configuration stored in json form
-$TestConfig = Get-Content "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\ps\config.json" | ConvertFrom-Json
+$TestConfig = Get-Content $configpath | ConvertFrom-Json
 $rocksFolder = $TestConfig.rocksFolder
 
 # Function responsible for connecting to the vcenter
 
-Import-Module .\credentialtest.ps1 -Force
+Import-Module $crendentialtestpath -Force
 function Get-ScissorUser(){
     $VsphereUser= get-scissors
     return $VsphereUser

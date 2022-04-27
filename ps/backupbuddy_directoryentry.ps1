@@ -1,6 +1,12 @@
-﻿#Allows the user to enter Directory names for backup
+﻿#Get General Utils
+$generalutils_path = Get-ChildItem -Path C:\Users\$env:UserName -Filter backupbuddy_generalutils.ps1 -Recurse | %{$_.FullName}
+Import-Module $generalutils_path
+
+
+#Allows the user to enter Directory names for backup
+$configpath = ResolveFilePath -File backupbuddy_config.json
 $looper=1
-$BigObject = Get-Content "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\ps\config.json" | ConvertFrom-Json
+$BigObject = Get-Content $configpath | ConvertFrom-Json
 $targets = $BigObject.dirTargets
 
 
@@ -18,4 +24,4 @@ while($looper -eq 1){
     }
 }
 $BigObject.dirTargets = $targets
-$BigObject | Convertto-Json -Depth 100 | Out-File "C:\Users\meckh\Documents\GitHub\ChamplainCapstone\ps\config.json"
+$BigObject | Convertto-Json -Depth 100 | Out-File $configpath

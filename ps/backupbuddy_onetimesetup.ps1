@@ -34,7 +34,8 @@ $looper = 0
     
     $choice = Read-Host -Prompt "Would you like to input Virtual Machines to backup?[y/N]"
     if(($choice -eq "y") -or ($choice -eq "Y")){
-        & "vmentry.ps1"
+        $vmpath = ResolveFilePath -File backupbuddy_vmentry.ps1
+        & "$vmpath"
         $looper=1
     }elseif(($choice -eq "n") -or ($choice -eq "N")){
         Write-Host "VM Entry Cancelled. VMs can be added later using the 'VM Entry' function on the main menu."
@@ -50,7 +51,8 @@ $looper = 0
     
     $choice = Read-Host -Prompt "Would you like to input Directories to backup?[y/N]"
     if(($choice -eq "y") -or ($choice -eq "Y")){
-        & "direntry.ps1"
+        $dirpath = ResolveFilePath -File backupbuddy_direntry.ps1
+        & "$dirpath"
         $looper=1
     }elseif(($choice -eq "n") -or ($choice -eq "N")){
         Write-Host "Directory Entry Cancelled. Directories can be added later using the 'Dir Entry' function on the main menu."
