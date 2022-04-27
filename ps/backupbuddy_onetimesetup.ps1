@@ -51,7 +51,7 @@ $looper = 0
     
     $choice = Read-Host -Prompt "Would you like to input Directories to backup?[y/N]"
     if(($choice -eq "y") -or ($choice -eq "Y")){
-        $dirpath = ResolveFilePath -File backupbuddy_direntry.ps1
+        $dirpath = ResolveFilePath -File backupbuddy_directoryentry.ps1
         & "$dirpath"
         $looper=1
     }elseif(($choice -eq "n") -or ($choice -eq "N")){
