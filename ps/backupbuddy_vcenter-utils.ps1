@@ -51,13 +51,12 @@ Function pick_snapshot(){
 function cloner () {
     
     connect_server
-    $targets = $TestConfig.targets
+    $targets = $TestConfig.vmTargets
 # IN THEORY, This works by creating a new snapshot to backup off of on the target vm, and then deploys a linked clone based off of the
 # reference snapshot and then exports the linked VM to an OVA template, for every target given by config.json
     foreach($target in $targets) {
 
-        $snapshot = pick_snapshot -vm $vm
-
+        $vm = Get-VM -Name $target
         $newname = "{0}.clone" -f $vm.Name
 
         #Testing to see if this works with full cloning

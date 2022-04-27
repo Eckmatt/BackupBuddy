@@ -8,13 +8,16 @@ function DirBackup () {
     $BigObject = Get-Content $configpath | ConvertFrom-Json
     $targets = $BigObject.dirTargets
     $rocksFolder = $BigObject.rocksFolder
-    $rocksFolder.Trim('"')
+    Set-Location -Path $rocksFolder
 
 
     foreach($target in $targets){
         $archiveName=$target.Replace("\","_")
+        $archiveName=$archiveName.Replace(":","")
         $archiveName+=".zip"
         $target+="\*"
-        & "C:\Program Files\7-Zip\7z.exe" a -tzip $archiveName -o$rocksFolder $target
+        & "C:\Program Files\7-Zip\7z.exe" a -tzip $archiveName $target
     }
 }
+
+DirBackup

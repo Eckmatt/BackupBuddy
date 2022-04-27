@@ -1,8 +1,7 @@
 Section,Method,Command,Arguments,Name,Description
-Test! utils,powershell_file,vcenter_utils.ps1, ,vcenter_utils,runs vcenter_utils
-Test! utils,powershell_file,credentialtest.ps1, ,credentialtest,runs credentialtest
-Data Entry,powershell_file,vmentry.ps1, ,Add VM,Add VM name for automated backup
-Data Entry,powershell_file,directoryentry.ps1, ,Add Directory,Add directory filepath for automated backup
-Data Deletion,powershell_file,directorydelete.ps1, ,Delete Directory,Delete directory filepath from list of automated backups
-Data Deletion,powershell_file,vmdelete.ps1, ,Delete VM,Delete VM from list of automated backups
-Full Config,powershell_file,config.ps1,,Reconfigure all settings,Setup the Backup Buddy
+First-Time Config,powershell_file,backupbuddy_onetimesetup.ps1,,Reconfigure all settings,Setup the Backup Buddy
+Data Entry,powershell_file,backupbuddy_vmentry.ps1, ,Add VM,Add VM name for automated backup
+Data Entry,powershell_file,backupbuddy_directoryentry.ps1, ,Add Directory,Add directory filepath for automated backup
+Data Deletion,powershell_file,backupbuddy_directorydelete.ps1, ,Delete Directory,Delete directory filepath from list of automated backups
+Data Deletion,powershell_file,backupbuddy_vmdelete.ps1, ,Delete VM,Delete VM from list of automated backups
+
