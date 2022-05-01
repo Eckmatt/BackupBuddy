@@ -27,6 +27,7 @@ if($guiInstall -eq $null){
 #Import Menu Gui
 Import-Module PSScriptMenuGui
 try{
+    #Checks if user has VMware PowerCLI installed
     $powerCLIInstall = Get-Package -Name "VMware PowerCLI"
 }catch [NoMatchFound]{
     Read-Host -Prompt "VMware PowerCLI was not found. PowerCLI is required to interface with vSphere and perform backups. Would you like to download it now? [y/N]"
@@ -46,6 +47,14 @@ try{
 
 } 
 
+#Check if user has 7-Zip
+
+if (-not (Test-Path -Path "C:\Program Files\7-Zip" -PathType Leaf)){
+    Write-Host "ERROR! 7-Zip has not been installed, or is not installed under the default filepath. Please install 7-Zip to C:\Program Files\7-Zip to use the Backup Buddy"
+    exit 0
+    
+
+}
 #Change to match file path
 $menupath = ResolveFilePath -File backupbuddy_userinterface.csv
 Show-ScriptMenuGui -csvPath $menupath -windowTitle "Backup Buddy"
